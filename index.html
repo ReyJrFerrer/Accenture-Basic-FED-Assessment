@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rey's Phone Studio</title>
+  <meta name="description" content="Pure Objects by Xiaomi Studio. Exclusive product collection.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/svg+xml" href="Logo.svg" />
+</head>
+<body>
+  <div id="main-app-container">
+    
+    <header id="store-header">
+      <div class="header-content">
+        <div id="brand-logo">
+          <img src="Logo.svg" alt="Logo" class="logo-box" style="background-color: transparent;" />
+          <span class="logo-text">Rey's Phone <span class="font-normal text-stone">Studio</span></span>
+        </div>
+        <div class="header-actions">
+          <button id="cart-trigger-btn" aria-label="View Shopping Cart">
+            <i data-lucide="shopping-bag" class="icon-bag"></i>
+            <span>Bag</span>
+            <span id="header-cart-badge-container">
+              <span class="badge-empty">Empty</span>
+            </span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <div id="cart-modal-container" class="cart-modal hidden">
+      <div class="cart-modal-inner">
+        <div class="cart-modal-content">
+          <div class="cart-summary-box">
+            <h2 class="cart-modal-title">Cart Overview</h2>
+            <p class="cart-item-count-label">Total quantity: <span id="cart-total-quantity">0</span></p>
+            <p class="cart-total-price hidden" id="cart-total-price-display">Total: <span>Php 0.00</span></p>
+            <button id="cart-checkout-btn" class="btn-checkout" disabled>Checkout Order</button>
+          </div>
+          
+          <div class="cart-items-list-container scrollbar-thin">
+            <div id="empty-cart-view" class="empty-cart-msg">No items selected yet.</div>
+            <div id="cart-products-row" class="cart-products-row hidden"></div>
+          </div>
+          
+          <div class="cart-close-box">
+            <button id="close-cart-btn" title="Close cart">
+              <i data-lucide="x"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <main>
+      <section id="hero-slideshow-section"></section>
+
+      <section id="catalog-section">
+        <div class="catalog-header">
+          <div>
+            <span class="catalog-subtitle">Curated Collection</span>
+            <h2 id="catalog-title">Smartphones</h2>
+          </div>
+        </div>
+        
+        <div id="products-flex-grid"></div>
+      </section>
+
+      <section id="wearables-section">
+        <div class="catalog-header">
+          <div>
+            <span class="catalog-subtitle">Curated Collection</span>
+            <h2 id="wearables-title">Wearables</h2>
+          </div>
+        </div>
+        
+        <div id="wearables-flex-grid" class="products-flex-grid"></div>
+      </section>
+    </main>
+
+    <footer id="app-footer">
+      <p>© Reynaldo Jr. D. Ferrer - Basic FED Assessment.</p>
+    </footer>
+
+    <!-- Modals Overlay -->
+    <div id="product-detail-modal-overlay" class="modal-overlay hidden">
+      <div id="product-detail-modal" class="modal-content animate-slide-down">
+        <div class="modal-gallery">
+          <div id="modal-category-badge" class="category-badge"></div>
+          <img id="modal-product-image" src="" alt="">
+        </div>
+        <div class="modal-details">
+          <div>
+            <div class="modal-header-row">
+              <h2 id="detail-product-name"></h2>
+              <button id="close-detail-modal-btn" aria-label="Close modal">
+                <i data-lucide="x"></i>
+              </button>
+            </div>
+            <p id="detail-product-price"></p>
+            <p id="detail-product-description"></p>
+            
+            <div class="modal-color-selection">
+              <span class="color-label">Choose Colorway: <span id="detail-selected-color-name"></span></span>
+              <div id="detail-color-options" class="color-options-wrap"></div>
+            </div>
+          </div>
+          <div class="modal-footer-action">
+            <button id="detail-add-to-cart-btn">
+              <i data-lucide="shopping-cart"></i>
+              <span>Add to Shopping Cart</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="alert-overlay" class="modal-overlay hidden">
+      <div id="alert-box" class="alert-box">
+        <div class="alert-header">
+          <span class="alert-title">Store Notice</span>
+          <button id="alert-header-close-btn" aria-label="Close">✕</button>
+        </div>
+        <div class="alert-body">
+          <div class="alert-icon-box">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          </div>
+          <div>
+            <h3>Message</h3>
+            <p id="alert-message-text"></p>
+          </div>
+        </div>
+        <div class="alert-footer">
+          <button id="alert-ok-btn">Acknowledge</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
